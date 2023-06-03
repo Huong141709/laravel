@@ -54,8 +54,8 @@ Route::post('/signup',[SignupController::class ,'displayInfor']);
 Route::get('/addrooms', [addRoomsController::class, 'index']);
 Route::post('/addrooms', [addRoomsController::class, 'showrooms']);
 
-Route::get('/luan',[PageController::class,'getIndex']);
-Route::get('/luan6',[PageController::class,'slide']);
+Route::get('/huong',[PageController::class,'getIndex']);
+Route::get('/huong1',[PageController::class,'slide']);
 
 Route::get('/luan1/{id}',[PageController::class,'getLoaiSp']);
 
@@ -81,8 +81,14 @@ Route::get('/luan8',[PageController::class,'about']);
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
-
-
+										
+Route::get('/admin', [PageController::class, 'getIndexAdmin']);											
+Route::get('/admin-add-form', [App\Http\Controllers\PageController::class, 'getAdminAdd'])->name('add-product');
+Route::post('/admin-add-form', [App\Http\Controllers\PageController::class, 'postAdminAdd']);	
+Route::get('/admin-edit-form/{id}', [App\Http\Controllers\PageController::class, 'getAdminEdit']);
+Route::get('/admin-edit', [App\Http\Controllers\PageController::class, 'postAdminEdit']);	
+Route::post('/admin-delete/{id}', [App\Http\Controllers\PageController::class, 'postAdminDelete']);	
+Route::get('/admin-export', [App\Http\Controllers\PageController::class, 'exportAdminProduct'])->name('export');
 
 
 
